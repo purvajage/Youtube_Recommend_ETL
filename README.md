@@ -1,4 +1,4 @@
-# 🌄 Youtube-ETL-Pipeline
+# Youtube-ETL-Pipeline
 
 This project demonstrates a complete end-to-end data pipeline using the ETL (Extract - Transform - Load) model for YouTube Trending Video data. The pipeline leverages big data tools like Apache Spark for processing, and serves use-cases such as fast video search and building a video recommendation system.
 
