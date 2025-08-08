@@ -1,0 +1,22 @@
+
+version: 2
+
+sources:
+  - name: gold
+    tables:
+      - name: videocategory
+        meta:
+          dagster:
+            asset_key: ["warehouse", "gold", "videoCategory"]
+      - name: linkvideos
+        meta:
+          dagster:
+            asset_key: ["warehouse", "gold", "linkVideos"]
+      - name: metricvideos
+        meta:
+          dagster:
+            asset_key: ["warehouse", "gold", "metricVideos"]
+      - name: informationvideos
+        meta:
+          dagster:
+            asset_key: ["warehouse", "gold", "informationVideos"]
