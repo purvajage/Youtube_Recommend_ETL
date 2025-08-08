@@ -1,106 +1,111 @@
 # 🌄 Youtube-ETL-Pipeline
-In this project, I build a simple data pipeline following the ETL(extract - transform - load) model using Youtube-Trending-Video dataset, perform data processing, transformation and calculation using Apache Spark big data technology, serving the video search and recommendation system
+
+This project demonstrates a complete end-to-end data pipeline using the ETL (Extract - Transform - Load) model for YouTube Trending Video data. The pipeline leverages big data tools like Apache Spark for processing, and serves use-cases such as fast video search and building a video recommendation system.
+
+---
 
 ## 🔦 About Project
+
 <img src="./public/images/data_flow.png" style="width: 100%;">
 
- - **Data Source**: This project uses two main `data sources`: [Youtube Trending Video](https://www.kaggle.com/datasets/rsrishav/youtube-trending-video-dataset) data and [Youtube API](https://developers.google.com/youtube/v3)
-    - `Youtube Trending Video` data is downloaded from [Kaggle.com](https://www.kaggle.com) with `.csv` file format, then loaded into `MySQL`, considered as a `data source`
-    - Using `Video ID` and `Category ID` from `Youtube Trending Video` data, we collect some additional information fields from `Youtube API` such as `Video Link` and `Video Category`
- - **Extract Data**: Extract the above `data sources` using `Polars` `DataFrame`, now we have the `raw` layer, then load the data into `MinIO` `datalake`
- - **Tranform Data**: From `MinIO`, we use `Apache Spark`, specifically `PySpark`
-    - convert from `Polars` `DataFrame` to `PySpark` `DataFrame` for processing and calculation, we get `silver` and `gold` layers
-    - Data stored in `MinIO` is in `.parquet` format, providing better processing performance
- - **Load Data**: Load the `gold` layer into the `PostgreSQL` data warehouse, perform additional transform with `dbt` to create an `index`, making video searching faster
- - **Serving**: The data was used for visualization using `Metabase` and creating a video recommendation application using `Streamlit`
- - **package and orchestrator**: Use `Docker` to containerize and package projects and `Dagster` to coordinate `assets` across different tasks
+**Key Highlights:**
+
+- **Data Sources:**
+  - [YouTube Trending Video Dataset](https://www.kaggle.com/datasets/rsrishav/youtube-trending-video-dataset) (CSV, loaded into MySQL as a primary data source)
+  - [YouTube API](https://developers.google.com/youtube/v3) (used for fetching extra fields like Video Link & Category using Video ID and Category ID)
+
+- **ETL Flow:**
+  - **Extract:** Data is extracted from MySQL (Kaggle CSV) and YouTube API, loaded into a MinIO datalake as the *raw layer* using Polars DataFrame.
+  - **Transform:** Data is read from MinIO, converted from Polars DataFrame to PySpark DataFrame for processing. Intermediate results (*silver/gold layers*) are stored back in MinIO in Parquet format for performance.
+  - **Load:** Gold layer data is loaded into PostgreSQL (data warehouse). Additional transforms with dbt create fast search indexes.
+  - **Serving:** Data is visualized using Metabase, and a video recommendation app is served via Streamlit.
+  - **Packaging & Orchestration:** Docker is used for containerization and Dagster for orchestrating pipeline assets.
+
+---
 
 ## ⚡ Workflow
+
 <img src="./public/images/Data_flow_youtube2.png" style="width: 100%;">
 
-## 📦 Technologies
- - `MySQL`
- - `Youtube API`
- - `Polars`
- - `MinIO`
- - `Apache Spark`
- - `PostgreSQL`
- - `Dbt`
- - `Metabase`
- - `Streamlit`
- - `Dagster`
- - `Docker`
- - `Apache Superset`
- - `Unittest`
- - `Pytest`
+---
+
+## 📦 Technologies Used
+
+- MySQL
+- YouTube API
+- Polars
+- MinIO
+- Apache Spark (PySpark)
+- PostgreSQL
+- dbt
+- Metabase
+- Streamlit
+- Dagster
+- Docker
+- Apache Superset
+
+
+---
 
 ## 🦄 Features
-Here's what you can do with:
- - You can completely change the logic or create new `assets` in the `data pipeline` as you wish, perform `aggregate` `calculations` on the `assets` in the `pipeline` according to your purposes.
- - You can also create new `data charts` as well as change existing `charts` as you like with extremely diverse `chart types` on `Metabase` and `Apache Superset`.
- - You can also create new or change my existing `dashboards` as you like
- - `Search` videos quickly with any `keyword`, for `Video Recommendation` Apps
- - `Search` in many different languages, not just `English` such as: `Japanese`, `Canadian`, `German`, `Indian`, `Russian`
- - Recommend videos based on `category` and `tags` video
+
+- Modify or add new pipeline assets and perform custom aggregations as needed.
+- Create or edit data charts and dashboards on Metabase & Apache Superset.
+- Fast video search with any keyword, supporting multiple languages (Japanese, Canadian, German, Indian, Russian, etc.).
+- Video recommendations based on category and tags.
+
+---
 
 ## 👩🏽‍🍳 The Process
 
+1. **Data Extraction:** Collect trending video data from Kaggle & fetch additional fields from YouTube API.
+2. **Data Loading:** Store raw data in MinIO datalake.
+3. **Transformation:** Use Spark (PySpark) for heavy data transformations and aggregations.
+4. **Data Warehousing:** Load processed data into PostgreSQL; create search indexes with dbt.
+5. **Serving & Visualization:** Use Metabase for BI dashboards and Streamlit for the recommendation app.
+6. **Orchestration & Packaging:** Manage all services with Docker and coordinate workflows with Dagster.
 
-## 📚 What I Learned
-
-During this project, I learned important skills, understood complex ideas, knew how to install and set up popular and useful tools, which brought me closer to becoming a `Data Engineer`.
- - **Logical thinking**: I learned how to think like a data person, find the cause of the data `problem` and then come up with the most `reasonable solution` to achieve high data `accuracy`.
- - **Architecture**: I understand and grasp the `ideas` and `architecture` of today's popular and popular big data processing tool, `Apache Spark`.
- - **Installation**: I learned how to install popular data processing, visualization and storage tools such as: `Metabase`, `Streamlit`, `MinIO`,... with `Docker`
- - **Setup**: I know how to setup `Spark Standalone Cluster` using `Docker` with three `Worker Nodes` on my local machine
-
-### 📈 Overall Growth: 
-Each part of this project has helped me understand more about how to build a data engineering, data management project. Learn new knowledge and improve my skills in future work
-
-## 💭 How can it be improved?
- - Add more `data sources` to increase data richness.
- - Refer to other `data warehouses` besides `PostgreSQL` such as `Amazon Redshift` or `Snowflake`.
- - Perform more `cleaning` and `optimization` `processing` of the data.
- - Perform more advanced `statistics`, `analysis` and `calculations` with `Apache Spark`.
- - Check out other popular and popular `data orchestration` tools like `Apache Airflow`.
- - Separate `dbt` into a separate service (separate `container`) in `docker` when the project expands
- - Setup `Spark Cluster` on `cloud platforms` instead of on `local machines`
- - Refer to `cloud computing` services if the project is more extensive
- - Learn about `dbt packages` like `dbt-labs/dbt_utils` to help make the `transformation` process faster and more optimal.
-
+---
 ## 🚦 Running the Project
-To run the project in your local environment, follow these steps:
-1. Run command after to clone the `repository` to your `local machine`.
-~~~bash
-   git clone https://github.com/longNguyen010203/Youtube-ETL-Pipeline.git
-~~~
 
-2. Run the following commands to build the images from the `Dockerfile`, pull images from `docker hub` and launch services
-~~~bash
+**To run locally:**
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/longNguyen010203/Youtube-ETL-Pipeline.git
+   ```
+
+2. **Build Docker images and start services:**
+   ```bash
    make build
    make up
-~~~
+   ```
 
-3. Run the following commands to access the `SQL editor` on the `terminal` and Check if `local_infile` was turned on
-~~~python
+3. **Access MySQL & check `local_infile`:**
+   ```bash
    make to_mysql_root
 
    SET GLOBAL local_infile=TRUE;
    SHOW VARIABLES LIKE "local_infile";
    exit
-~~~
+   ```
 
-4. Run the following commands to create tables with schema for `MySQL`, load data from `CSV` file to `MySQL` and create tables with schema for `PostgreSQL`
-~~~bash
+4. **Create tables and load data:**
+   ```bash
    make mysql_create
    make mysql_load
    make psql_create
-~~~
+   ```
 
-5. Open [http://localhost:3001](http://localhost:3001) to view `Dagster UI` and click `Materialize all` button to run the Pipeline
-6. Open [http://localhost:9001](http://localhost:9001) to view `MinIO UI` and check the data to be loaded
-7. Open [http://localhost:8080](http://localhost:8080) to view `Spark UI` and three `workers` are running
-8. Open [http://localhost:3030](http://localhost:3030) to see charts and `dashboards` on `Metabase`
-9. Open [http://localhost:8501](http://localhost:8501) to try out the `video recommendation` app on `Streamlit`
+5. **Run the pipeline and access UIs:**
+   - [Dagster UI](http://localhost:3001) → Click "Materialize all" to run the pipeline
+   - [MinIO UI](http://localhost:9001) → Check loaded data
+   - [Spark UI](http://localhost:8080) → Monitor Spark and worker nodes
+   - [Metabase](http://localhost:3030) → Charts and dashboards
+   - [Streamlit App](http://localhost:8501) → Video recommendation app
 
-## 🍿 Video
+---
+
+## 🍿
+
+Feel free to explore, extend, and experiment with every part of this pipeline!
