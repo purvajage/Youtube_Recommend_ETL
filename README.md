@@ -4,7 +4,7 @@ This project demonstrates a complete end-to-end data pipeline using the ETL (Ext
 
 ---
 
-## 🔦 About Project
+## About Project
 
 <img src="./public/images/data_flow.png" style="width: 100%;">
 
@@ -23,13 +23,13 @@ This project demonstrates a complete end-to-end data pipeline using the ETL (Ext
 
 ---
 
-## ⚡ Workflow
+##  Workflow
 
 <img src="./public/images/Data_flow_youtube2.png" style="width: 100%;">
 
 ---
 
-## 📦 Technologies Used
+##  Technologies Used
 
 - MySQL
 - YouTube API
@@ -47,7 +47,7 @@ This project demonstrates a complete end-to-end data pipeline using the ETL (Ext
 
 ---
 
-## 🦄 Features
+##  Features
 
 - Modify or add new pipeline assets and perform custom aggregations as needed.
 - Create or edit data charts and dashboards on Metabase & Apache Superset.
@@ -56,7 +56,7 @@ This project demonstrates a complete end-to-end data pipeline using the ETL (Ext
 
 ---
 
-## 👩🏽‍🍳 The Process
+##  The Process
 
 1. **Data Extraction:** Collect trending video data from Kaggle & fetch additional fields from YouTube API.
 2. **Data Loading:** Store raw data in MinIO datalake.
@@ -66,7 +66,7 @@ This project demonstrates a complete end-to-end data pipeline using the ETL (Ext
 6. **Orchestration & Packaging:** Manage all services with Docker and coordinate workflows with Dagster.
 
 ---
-## 🚦 Running the Project
+##  Running the Project
 
 **To run locally:**
 
@@ -106,6 +106,6 @@ This project demonstrates a complete end-to-end data pipeline using the ETL (Ext
 
 ---
 
-## 🍿
+## 
 
 Feel free to explore, extend, and experiment with every part of this pipeline!
