@@ -24,7 +24,6 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n' 
 IGNORE 1 ROWS;
-
 LOAD DATA LOCAL INFILE '/tmp/youTube_trending_video/IN_youtube_trending_data.csv' 
 INTO TABLE IN_youtube_trending_data 
 FIELDS TERMINATED BY ',' 
