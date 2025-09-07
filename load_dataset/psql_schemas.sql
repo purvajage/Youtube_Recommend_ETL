@@ -36,4 +36,5 @@ CREATE TABLE gold.informationVideos (
     thumbnail_link TEXT,
     comments_disabled VARCHAR(5),
     ratings_disabled VARCHAR(5)
+    
 );
