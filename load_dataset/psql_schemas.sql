@@ -11,7 +11,6 @@ CREATE TABLE gold.linkVideos (
     video_id VARCHAR(20),
     link_video VARCHAR(50)
 );
-
 DROP TABLE IF EXISTS gold.metricVideos;
 CREATE TABLE gold.metricVideos (
     video_id VARCHAR(20),
