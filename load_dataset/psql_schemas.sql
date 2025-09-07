@@ -24,7 +24,6 @@ CREATE TABLE gold.metricVideos (
     dislikes INTEGER,
     comment_count INTEGER
 );
-
 DROP TABLE IF EXISTS gold.informationVideos;
 CREATE TABLE gold.informationVideos (
     video_id VARCHAR(20),
