@@ -6,7 +6,6 @@ CREATE TABLE gold.videoCategory (
     categoryId VARCHAR(5),
     categoryName VARCHAR(50)
 );
-
 DROP TABLE IF EXISTS gold.linkVideos;
 CREATE TABLE gold.linkVideos (
     video_id VARCHAR(20),
