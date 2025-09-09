@@ -2,7 +2,6 @@ version: "3.9"
 
 
 services:
-
   # MySQL
   de_mysql:
     image: mysql:8.0
