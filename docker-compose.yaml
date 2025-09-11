@@ -15,7 +15,6 @@ services:
     env_file: .env
     networks:
       - de_network
-
   # MinIO
   minio:
     hostname: minio
