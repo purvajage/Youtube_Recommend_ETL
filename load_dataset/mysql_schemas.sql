@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS youtube_trending_data;
-
 DROP TABLE IF EXISTS CA_youtube_trending_data;
 CREATE TABLE CA_youtube_trending_data (
     video_id VARCHAR(20),
