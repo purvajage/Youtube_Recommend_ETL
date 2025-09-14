@@ -17,6 +17,7 @@ CREATE TABLE CA_youtube_trending_data (
     comments_disabled VARCHAR(6),  
     ratings_disabled VARCHAR(6)
 );
+
 DROP TABLE IF EXISTS DE_youtube_trending_data;
 CREATE TABLE DE_youtube_trending_data (
     video_id VARCHAR(20),
