@@ -19,6 +19,7 @@ CREATE TABLE CA_youtube_trending_data (
 );
 
 
+
 DROP TABLE IF EXISTS DE_youtube_trending_data;
 CREATE TABLE DE_youtube_trending_data (
     video_id VARCHAR(20),
